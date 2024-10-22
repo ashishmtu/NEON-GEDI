@@ -18,15 +18,11 @@ This repository contains various models designed to predict Aboveground Biomass 
 
 The waveform data should be stored in CSV files, with each file containing a site's waveform and elevation data. A metadata CSV file contains labels (biomass density) for each site. Place your waveform CSV files in a directory and provide the paths to the training and testing metadata files when running the scripts.
 
-- **1D CNN:** The model expects 2-channel time-series data (waveform and elevation) for each site, stored in CSV format. Each CSV should contain columns for `Rxwaveform` (waveform data) and `Elevation` (elevation data). The metadata file should contain the `Live_Biomass_Density` label for each site.
+- **1D CNN & LSTM:** The model expects 2-channel time-series data (waveform and elevation) for each site, stored in CSV format. Each CSV should contain columns for `Rxwaveform` (waveform data) and `Elevation` (elevation data). The metadata file should contain the `Live_Biomass_Density` label for each site.
 
-- **CNN:** This model requires images generated from the waveform data, which should be stored as image files (e.g., `.tif`). A CSV metadata file should link each image with its corresponding `Live_Biomass_Density` label. The input dimensions for the images are dynamically adjusted based on the chosen model from the `timm` library.
+- **CNN:** This model requires images generated from the waveform data, which should be stored as image files (e.g., `.png`). A CSV metadata file should link each image with its corresponding `Live_Biomass_Density` label. The input dimensions for the images are dynamically adjusted based on the chosen model from the `timm` library.
 
-- **LSTM:** The LSTM model requires 2-channel time-series data (waveform and elevation) similar to the 1D CNN, with each site having waveform data (`Rxwaveform`) and elevation data (`Elevation`) stored in CSV format. The metadata file should contain the corresponding biomass density labels.
-
-- **OLS Model:** This notebook expects the waveform data to be preprocessed into a suitable feature set (e.g., waveform-derived metrics). The metadata file should contain the corresponding labels for each site to be used in the regression analysis.
-
-- **Random Forest Model:** The Random Forest model requires pre-extracted features from the waveform data (such as waveform metrics) and corresponding biomass density labels. These features and labels are used as inputs for the model.
+- **OLS & Random Forest Model:** This notebook expects the waveform data to be preprocessed into a suitable feature set (e.g., waveform-derived metrics). The metadata file should contain the corresponding labels for each site to be used in the regression analysis.
 
 ### Training and Evaluation
 Each model script can be run from the command line, specifying the required arguments such as the dataset paths, number of epochs, and batch size.
