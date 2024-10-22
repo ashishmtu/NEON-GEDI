@@ -14,7 +14,7 @@ This repository contains various models designed to predict Aboveground Biomass 
 
 ## Models Overview
 
-## Data Preparation
+### Data Preparation
 
 The waveform data should be stored in CSV files, with each file containing a site's waveform and elevation data. A metadata CSV file contains labels (biomass density) for each site. Place your waveform CSV files in a directory and provide the paths to the training and testing metadata files when running the scripts.
 
