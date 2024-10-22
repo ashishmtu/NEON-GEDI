@@ -60,7 +60,7 @@ python 1D-CNN-Model.py --folder_path ./data/waveforms --train_metadata_csv ./dat
 - **Hidden Dimensions:** 128 hidden units in the LSTM layers.
 - **Dropout:** 0.5 to prevent overfitting.
 
-- ### CNN
+### CNN
 
 **File:** `CNN-Model.py`  
 **Description:** A convolutional neural network that processes 2D images generated from waveform data. The model uses pretrained architectures from `timm` and fine-tunes them for regression tasks.
