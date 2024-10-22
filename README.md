@@ -7,16 +7,26 @@ This repository contains various models designed to predict Aboveground Biomass 
 | File Name | Type | Description |
 |-----------|------|-------------|
 | [1D-CNN-Model.py](https://github.com/ashishmtu/NEON-GEDI/blob/Models/1D-CNN-Model.py) | Python Script | Implements a 1D Convolutional Neural Network (CNN) to predict live biomass density using waveform and elevation data. |
-| [CNN-Model.py](https://github.com/ashishmtu/NEON-GEDI/blob/Models/CNN-Model.py) | Python Script | A convolutional neural network that processes 2D images generated from waveform data. The model uses various pretrained architectures from the `timm` library (e.g., ResNet, EfficientNet) and fine-tunes them for regression tasks to predict biomass density. |
+| [CNN-Model.py](https://github.com/ashishmtu/NEON-GEDI/blob/Models/CNN-Model.py) | Python Script | A convolutional neural network that processes 2D images generated from waveform data. The model uses various pretrained architectures from the `timm` library (e.g., ResNet, eva, beit) and fine-tunes them for regression tasks to predict biomass density. |
 | [LSTM-Model.py](https://github.com/ashishmtu/NEON-GEDI/blob/Models/LSTM-Model.py) | Python Script | A Long Short-Term Memory (LSTM) model designed for capturing sequential dependencies in waveform data for biomass prediction. |
 | [OLS-Model.ipynb](https://github.com/ashishmtu/NEON-GEDI/blob/Models/OLS-Model.ipynb) | Jupyter Notebook | Implements an Ordinary Least Squares (OLS) regression model to predict biomass density for comparison with deep learning models. |
 | [RF-Model.ipynb](https://github.com/ashishmtu/NEON-GEDI/blob/Models/RF-Model.ipynb) | Jupyter Notebook | Random Forest-based model for biomass density prediction. |
 
 ## Models Overview
 
-### Data Preparation
-The waveform data should be stored in CSV files, with each file containing a site's waveform and elevation data. A metadata CSV file contains labels (biomass density) for each site.
-Place your waveform CSV files in a directory and provide the paths to the training and testing metadata files when running the scripts.
+## Data Preparation
+
+The waveform data should be stored in CSV files, with each file containing a site's waveform and elevation data. A metadata CSV file contains labels (biomass density) for each site. Place your waveform CSV files in a directory and provide the paths to the training and testing metadata files when running the scripts.
+
+- **1D CNN:** The model expects 2-channel time-series data (waveform and elevation) for each site, stored in CSV format. Each CSV should contain columns for `Rxwaveform` (waveform data) and `Elevation` (elevation data). The metadata file should contain the `Live_Biomass_Density` label for each site.
+
+- **CNN:** This model requires images generated from the waveform data, which should be stored as image files (e.g., `.tif`). A CSV metadata file should link each image with its corresponding `Live_Biomass_Density` label. The input dimensions for the images are dynamically adjusted based on the chosen model from the `timm` library.
+
+- **LSTM:** The LSTM model requires 2-channel time-series data (waveform and elevation) similar to the 1D CNN, with each site having waveform data (`Rxwaveform`) and elevation data (`Elevation`) stored in CSV format. The metadata file should contain the corresponding biomass density labels.
+
+- **OLS Model:** This notebook expects the waveform data to be preprocessed into a suitable feature set (e.g., waveform-derived metrics). The metadata file should contain the corresponding labels for each site to be used in the regression analysis.
+
+- **Random Forest Model:** The Random Forest model requires pre-extracted features from the waveform data (such as waveform metrics) and corresponding biomass density labels. These features and labels are used as inputs for the model.
 
 ### Training and Evaluation
 Each model script can be run from the command line, specifying the required arguments such as the dataset paths, number of epochs, and batch size.
