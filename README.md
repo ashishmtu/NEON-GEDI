@@ -2,6 +2,6 @@
 
 | Location  | Description | Files |
 |-----------|-------------|-------|
-| [Models](https://github.com/ashishmtu/NEON-GEDI/tree/Models) | Jupyter Notebook | |
-| [NEON](https://github.com/ashishmtu/NEON-GEDI/tree/NEON) | Jupyter Notebook | - Clip-DTM-NEON.ipynb<br>- Normalize-withDTM-NEON.ipynb<br>- PFT-Extractor.ipynb<br>- RH-Extractor.ipynb<br>- Remove-Blackborders-fromClipped-NEON.ipynb<br>- Simulated-GEDI-Waveform-Visualizer.ipynb |
+| [Models](https://github.com/ashishmtu/NEON-GEDI/tree/Models) | This repository contains various models designed to predict Aboveground Biomass density using Simulated GEDI Waveform data. The models include OLS, 1D-CNN, CNN, LSTM, and Random Forest approaches. Each model has been implemented in Python using PyTorch or other relevant libraries, with detailed scripts for training and evaluation. For detailed research refer to our research paper (under review) - Aboveground Biomass Density Estimation Using Deep Learning: Insight from NEON Ground-Truth Data and Simulated GEDI Waveform | - 1D-CNN-Model.py<br>- CNN-Model.py<br>- LSTM-Model.py<br>- OLS-Model.ipynb<br>- RF-Model.ipynb |
+| [NEON](https://github.com/ashishmtu/NEON-GEDI/tree/NEON) | This repository contains several Python notebooks that were used for processing and extracting data for developing and training Deep learning models to estimate AGBD, such as PFT (Plant Functional Types), GEDI simulated waveforms, and more. Each script handles specific tasks such as clipping, normalization, and feature extraction from NEON and simulated GEDI datasets. | - Clip-DTM-NEON.ipynb<br>- Normalize-withDTM-NEON.ipynb<br>- PFT-Extractor.ipynb<br>- RH-Extractor.ipynb<br>- Remove-Blackborders-fromClipped-NEON.ipynb<br>- Simulated-GEDI-Waveform-Visualizer.ipynb |
 
