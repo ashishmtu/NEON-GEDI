@@ -1,16 +1,16 @@
-# Biomass Density Prediction Models
+# Aboveground Biomass Density Prediction Models
 
-This repository contains various models designed to predict Aboveground Biomass density using Simulated GEDI Waveform data. The models include OLS, 1D-CNN, CNN, LSTM, and Random Forest approaches. Each model has been implemented in Python using PyTorch or other relevant libraries, with detailed scripts for training and evaluation.
+This repository contains various models designed to predict Aboveground Biomass density using Simulated GEDI Waveform data. The models include OLS, 1D-CNN, CNN, LSTM, and Random Forest approaches. Each model has been implemented in Python using PyTorch or other relevant libraries, with detailed scripts for training and evaluation. For detailed research refer to our research paper (under review) - **Aboveground Biomass Density Estimation Using Deep Learning: Insight from NEON Ground-Truth Data and Simulated GEDI Waveform**
 
 ## Table of Contents
 
 | File Name | Type | Description |
 |-----------|------|-------------|
-| [1D-CNN-Model.py](https://github.com/ashishmtu/NEON-GEDI/blob/Models/1D-CNN-Model.py)) | Python Script | Implements a 1D Convolutional Neural Network (CNN) to predict live biomass density using waveform and elevation data. |
-| [CNN-Model.py](https://github.com/ashishmtu/NEON-GEDI/blob/Models/CNN-Model.py) | Python Script | Uses convolutional neural networks for predicting biomass density from image data generated using waveform information. |
+| [1D-CNN-Model.py](https://github.com/ashishmtu/NEON-GEDI/blob/Models/1D-CNN-Model.py) | Python Script | Implements a 1D Convolutional Neural Network (CNN) to predict live biomass density using waveform and elevation data. |
+| [CNN-Model.py](https://github.com/ashishmtu/NEON-GEDI/blob/Models/CNN-Model.py) | Python Script | A convolutional neural network that processes 2D images generated from waveform data. The model uses various pretrained architectures from the `timm` library (e.g., ResNet, EfficientNet) and fine-tunes them for regression tasks to predict biomass density. |
 | [LSTM-Model.py](https://github.com/ashishmtu/NEON-GEDI/blob/Models/LSTM-Model.py) | Python Script | A Long Short-Term Memory (LSTM) model designed for capturing sequential dependencies in waveform data for biomass prediction. |
 | [OLS-Model.ipynb](https://github.com/ashishmtu/NEON-GEDI/blob/Models/OLS-Model.ipynb) | Jupyter Notebook | Implements an Ordinary Least Squares (OLS) regression model to predict biomass density for comparison with deep learning models. |
-| [RF-Model.ipynb](https://github.com/ashishmtu/NEON-GEDI/blob/Models/RF-Model.ipynb) | Jupyter Notebook | Random Forest-based model for biomass density prediction with hyperparameter tuning and feature importance analysis. |
+| [RF-Model.ipynb](https://github.com/ashishmtu/NEON-GEDI/blob/Models/RF-Model.ipynb) | Jupyter Notebook | Random Forest-based model for biomass density prediction. |
 
 ## Models Overview
 
