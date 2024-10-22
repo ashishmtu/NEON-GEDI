@@ -20,9 +20,9 @@ The waveform data should be stored in CSV files, with each file containing a sit
 
 - **1D CNN & LSTM:** The model expects 2-channel time-series data (waveform and elevation) for each site, stored in CSV format. Each CSV should contain columns for `Rxwaveform` (waveform data) and `Elevation` (elevation data). The metadata file should contain the `Live_Biomass_Density` label for each site.
 
-- **CNN:** This model requires images generated from the waveform data, which should be stored as image files (e.g., `.png`). A CSV metadata file should link each image with its corresponding `Live_Biomass_Density` label. The input dimensions for the images are dynamically adjusted based on the chosen model from the `timm` library.
+- **CNN:** This model requires images generated from the waveform data, which should be stored as image files (e.g., `.png`). A CSV metadata file should link each image with its corresponding `Live_Biomass_Density` label. 
 
-- **OLS & Random Forest Model:** This notebook expects the waveform data to be preprocessed into a suitable feature set (e.g., waveform-derived metrics). The metadata file should contain the corresponding labels for each site to be used in the regression analysis.
+- **OLS & Random Forest Model:** These notebooks expect the waveform data to be preprocessed into a suitable feature set (e.g., waveform-derived metrics). The metadata file should contain the corresponding labels for each site to be used in the regression analysis.
 
 ### Training and Evaluation
 Each model script can be run from the command line, specifying the required arguments such as the dataset paths, number of epochs, and batch size.
@@ -32,6 +32,15 @@ Each model script can be run from the command line, specifying the required argu
 python 1D-CNN-Model.py --folder_path ./data/waveforms --train_metadata_csv ./data/train_metadata.csv --test_metadata_csv ./data/test_metadata.csv --epochs 100 --batch_size 16
 
 ```
+### OLS Model
+
+**File:** `OLS-Model.ipynb`  
+**Description:** This notebook applies an Ordinary Least Squares (OLS) regression model to the dataset. It provides a basic statistical approach for comparison against more complex models like neural networks.
+
+### Random Forest Model
+
+**File:** `RF-Model.ipynb`  
+**Description:** This notebook implements a Random Forest model to predict biomass density using waveform features.
 
 ### 1D CNN
 
@@ -41,17 +50,6 @@ python 1D-CNN-Model.py --folder_path ./data/waveforms --train_metadata_csv ./dat
 **Important Parameters:**
 - **Input:** 2-channel (waveform and elevation) time-series data.
 - **Normalization:** Waveform and elevation data are normalized based on the maximum values in the dataset.
-- **Loss Function:** Mean Squared Error (MSE).
-
-### CNN
-
-**File:** `CNN-Model.py`  
-**Description:** A convolutional neural network that processes 2D images generated from waveform data. The model uses pretrained architectures from `timm` and fine-tunes them for regression tasks.
-
-**Important Parameters:**
-- **Input Dimension:** Dynamically determined based on the chosen model.
-- **Pretrained Models:** Uses models like `resnet50` for transfer learning.
-- **Loss Function:** Mean Squared Error (MSE).
 
 ### LSTM
 
@@ -61,17 +59,15 @@ python 1D-CNN-Model.py --folder_path ./data/waveforms --train_metadata_csv ./dat
 **Important Parameters:**
 - **Hidden Dimensions:** 128 hidden units in the LSTM layers.
 - **Dropout:** 0.5 to prevent overfitting.
-- **Loss Function:** Mean Squared Error (MSE).
 
-### OLS Model
+- ### CNN
 
-**File:** `OLS-Model.ipynb`  
-**Description:** This notebook applies an Ordinary Least Squares (OLS) regression model to the dataset. It provides a basic statistical approach for comparison against more complex models like neural networks.
+**File:** `CNN-Model.py`  
+**Description:** A convolutional neural network that processes 2D images generated from waveform data. The model uses pretrained architectures from `timm` and fine-tunes them for regression tasks.
 
-### Random Forest Model
-
-**File:** `RF-Model.ipynb`  
-**Description:** This notebook implements a Random Forest model to predict biomass density using waveform features. It includes hyperparameter tuning and feature importance analysis.
+**Important Parameters:**
+- **Input Dimension:** Dynamically determined based on the chosen model.
+- **Pretrained Models:** Uses models like `resnet50` for transfer learning.
 
 ## Results and Metrics
 
