@@ -78,3 +78,6 @@ Each model's performance is evaluated using several metrics, including:
 
 Model performance metrics and visualizations (such as loss curves and prediction vs true value plots) are generated and saved as part of the training process.
 
+## Credits
+
+CNN model was developed by Dr. Tao Liu (https://www.mtu.edu/forest/about/faculty-staff/faculty/liu-t/)
